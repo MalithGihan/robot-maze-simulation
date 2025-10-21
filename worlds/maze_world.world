@@ -1,0 +1,1027 @@
+<sdf version='1.10'>
+  <world name='robot_maze'>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+     <plugin
+      filename="gz-sim-physics-system"
+      name="gz::sim::systems::Physics">
+    </plugin>
+    <plugin
+      filename="gz-sim-user-commands-system"
+      name="gz::sim::systems::UserCommands">
+    </plugin>
+    <plugin
+      filename="gz-sim-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+    <plugin
+      filename="gz-sim-sensors-system"
+      name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin
+      filename="gz-sim-imu-system"
+      name="gz::sim::systems::Imu">
+    </plugin>
+    <scene>
+      <ambient>0.400000006 0.400000006 0.400000006 1</ambient>
+      <background>0.699999988 0.699999988 0.699999988 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name='ground'>
+      <static>true</static>
+      <pose>0 0 0 0 0 0</pose>
+      <link name='link'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>3.2000000000000002 3.2000000000000002 0.01</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>3.2000000000000002 3.2000000000000002 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.899999976 0.899999976 0.699999988 1</diffuse>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='border_top'>
+      <static>true</static>
+      <pose>0 1.5 0.14999999999999999 0 0 0</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>3 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>3 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='border_bottom'>
+      <static>true</static>
+      <pose>0 -1.5 0.14999999999999999 0 0 0</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>3 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>3 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='border_left'>
+      <static>true</static>
+      <pose>-1.5 0 0.14999999999999999 0 0 0</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>0.050000000000000003 3 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>0.050000000000000003 3 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='border_right'>
+      <static>true</static>
+      <pose>1.5 0 0.14999999999999999 0 0 0</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>0.050000000000000003 3 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>0.050000000000000003 3 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='thick_h_row1_1'>
+      <static>true</static>
+      <pose>-0.44387555122375488 0.47204753756523132 0.15000000596046448 0 0 1.5601799914994563</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>1 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>1 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='thick_h_row2_1'>
+      <static>true</static>
+      <pose>-1.2252000570297241 0.49515840411186218 0.15272299945354462 0 0 0</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='thick_h_row2_2'>
+      <static>true</static>
+      <pose>0.26507300138473511 0 0.15000000596046448 0 0 0</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='thick_h_row2_3'>
+      <static>true</static>
+      <pose>0.52709227800369263 1.0151799917221069 0.15212300419807434 0 0 0</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>1 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>1 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='thick_h_row3_1'>
+      <static>true</static>
+      <pose>-1.2310700416564941 -0.50015544891357422 0.15000000596046448 0 0 0</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='thick_h_row3_2'>
+      <static>true</static>
+      <pose>-0.73154598474502563 -0.96555465459823608 0.15000000596046448 0 0 0</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='thick_h_row3_3'>
+      <static>true</static>
+      <pose>0.015292800031602383 -0.9667743444442749 0.15000000596046448 0 0 0</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>1 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>1 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='thick_v_col1_1'>
+      <static>true</static>
+      <pose>1.0040348768234253 -1.2235627174377441 0.15000000596046448 0 0 1.5708000357176291</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='thick_v_col4_2'>
+      <static>true</static>
+      <pose>0.53704899549484253 -0.48850589990615845 0.14808499813079834 0 0 1.5708000357176291</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>1 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>1 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='thick_v_col5_1'>
+      <static>true</static>
+      <pose>1 0 0.14999999999999999 0 0 1.5708000000000009</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>1 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>1 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='thick_v_col1_1_1'>
+      <static>true</static>
+      <pose>1.0008899622520571 0.74581676387092877 0.15000000596046448 0 0 1.5708000357176291</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='thick_h_row1_1_1'>
+      <static>true</static>
+      <pose>0.0051415308339127774 0.99547731607604806 0.15000000596046448 0 0 1.5601799914994563</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>1 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>1 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='thick_v_col1_1_2'>
+      <static>true</static>
+      <pose>0.53975986912037999 0.26065254099282564 0.15000000596046448 0 0 1.5708000357176291</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='thick_h_row2_2_1'>
+      <static>true</static>
+      <pose>-0.70343121740316827 -0.0046335596698490328 0.15000000596046448 0 0 0</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='thick_h_row2_2_1_1'>
+      <static>true</static>
+      <pose>-0.66247940355369106 0.99416118424305344 0.15000000596046448 0 0 0</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='thick_h_row2_2_1_1_1'>
+      <static>true</static>
+      <pose>-0.22027082963726985 0.47112813285259947 0.15000000596046448 0 0 0</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='thick_v_col1_1_3'>
+      <static>true</static>
+      <pose>-0.45357330223242509 -0.27204762201496618 0.15000000596046448 0 0 1.5708000357176291</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='thick_h_row2_2_2'>
+      <static>true</static>
+      <pose>-0.18590285607081647 -0.49556799148648095 0.15000000596046448 0 0 0</pose>
+      <link name='l'>
+        <collision name='c'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='v'>
+          <geometry>
+            <box>
+              <size>0.5 0.050000000000000003 0.29999999999999999</size>
+            </box>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.5 -1</direction>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>0.100000001 0.100000001 0.100000001 1</specular>
+      <attenuation>
+        <range>10</range>
+        <linear>1</linear>
+        <constant>1</constant>
+        <quadratic>0</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+  </world>
+</sdf>
+
