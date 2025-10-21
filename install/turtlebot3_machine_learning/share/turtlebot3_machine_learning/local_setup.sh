@@ -1,0 +1,1 @@
+/home/shenal/ros2_ws/build/turtlebot3_machine_learning/ament_cmake_environment_hooks/local_setup.sh
